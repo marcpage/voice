@@ -12,21 +12,29 @@ struct SpeakerView: View {
     @Binding var show: Bool
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button(action: {withAnimation {self.show = false}}) {
-                    Image(systemName: "chevron.down.circle.fill")
-                        .scaleEffect(2.0)
-                        .padding()
-                        .accentColor(.black)
+        ZStack {
+            Rectangle()
+                .foregroundColor(.white)
+                .opacity(0.8)
+                .edgesIgnoringSafeArea(.all)
+                .frame(maxWidth: UIScreen.main.bounds.width,
+                       maxHeight: UIScreen.main.bounds.height)
+            VStack {
+                HStack {
+                    Button(action: {withAnimation {self.show = false}}) {
+                        Image(systemName: "chevron.down.circle.fill")
+                            .scaleEffect(2.0)
+                            .padding()
+                            .accentColor(.black)
+                    }
+                    Spacer()
                 }
+                Spacer()
+                Text("Speaker")
+                Spacer()
             }
-            Spacer()
-            Text("Speaker")
-            Spacer()
+            .foregroundColor(.green)
         }
-        .foregroundColor(.green)
     }
 }
 
