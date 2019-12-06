@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B9908AA2239AFB150020D350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA1239AFB150020D350 /* AppDelegate.swift */; };
+		B9908AA4239AFB150020D350 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA3239AFB150020D350 /* SceneDelegate.swift */; };
+		B9908AA6239AFB150020D350 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA5239AFB150020D350 /* ContentView.swift */; };
+		B9908AA8239AFB190020D350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9908AA7239AFB190020D350 /* Assets.xcassets */; };
+		B9908AAB239AFB190020D350 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9908AAA239AFB190020D350 /* Preview Assets.xcassets */; };
+		B9908AAE239AFB190020D350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9908AAC239AFB190020D350 /* LaunchScreen.storyboard */; };
+		B9908AB9239AFB190020D350 /* Prophet_s_VoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AB8239AFB190020D350 /* Prophet_s_VoiceTests.swift */; };
+		B9908AC4239AFB190020D350 /* Prophet_s_VoiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AC3239AFB190020D350 /* Prophet_s_VoiceUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B9908AB5239AFB190020D350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9908A96239AFB150020D350 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9908A9D239AFB150020D350;
+			remoteInfo = "Prophet's Voice";
+		};
+		B9908AC0239AFB190020D350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9908A96239AFB150020D350 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9908A9D239AFB150020D350;
+			remoteInfo = "Prophet's Voice";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B9908A9E239AFB150020D350 /* Prophet's Voice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prophet's Voice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9908AA1239AFB150020D350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B9908AA3239AFB150020D350 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B9908AA5239AFB150020D350 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B9908AA7239AFB190020D350 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B9908AAA239AFB190020D350 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B9908AAD239AFB190020D350 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B9908AAF239AFB190020D350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9908AB4239AFB190020D350 /* Prophet's VoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Prophet's VoiceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9908AB8239AFB190020D350 /* Prophet_s_VoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prophet_s_VoiceTests.swift; sourceTree = "<group>"; };
+		B9908ABA239AFB190020D350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9908ABF239AFB190020D350 /* Prophet's VoiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Prophet's VoiceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9908AC3239AFB190020D350 /* Prophet_s_VoiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prophet_s_VoiceUITests.swift; sourceTree = "<group>"; };
+		B9908AC5239AFB190020D350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B9908A9B239AFB150020D350 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9908AB1239AFB190020D350 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9908ABC239AFB190020D350 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B9908A95239AFB150020D350 = {
+			isa = PBXGroup;
+			children = (
+				B9908AA0239AFB150020D350 /* Prophet's Voice */,
+				B9908AB7239AFB190020D350 /* Prophet's VoiceTests */,
+				B9908AC2239AFB190020D350 /* Prophet's VoiceUITests */,
+				B9908A9F239AFB150020D350 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B9908A9F239AFB150020D350 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B9908A9E239AFB150020D350 /* Prophet's Voice.app */,
+				B9908AB4239AFB190020D350 /* Prophet's VoiceTests.xctest */,
+				B9908ABF239AFB190020D350 /* Prophet's VoiceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9908AA0239AFB150020D350 /* Prophet's Voice */ = {
+			isa = PBXGroup;
+			children = (
+				B9908AA1239AFB150020D350 /* AppDelegate.swift */,
+				B9908AA3239AFB150020D350 /* SceneDelegate.swift */,
+				B9908AA5239AFB150020D350 /* ContentView.swift */,
+				B9908AA7239AFB190020D350 /* Assets.xcassets */,
+				B9908AAC239AFB190020D350 /* LaunchScreen.storyboard */,
+				B9908AAF239AFB190020D350 /* Info.plist */,
+				B9908AA9239AFB190020D350 /* Preview Content */,
+			);
+			path = "Prophet's Voice";
+			sourceTree = "<group>";
+		};
+		B9908AA9239AFB190020D350 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B9908AAA239AFB190020D350 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B9908AB7239AFB190020D350 /* Prophet's VoiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				B9908AB8239AFB190020D350 /* Prophet_s_VoiceTests.swift */,
+				B9908ABA239AFB190020D350 /* Info.plist */,
+			);
+			path = "Prophet's VoiceTests";
+			sourceTree = "<group>";
+		};
+		B9908AC2239AFB190020D350 /* Prophet's VoiceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B9908AC3239AFB190020D350 /* Prophet_s_VoiceUITests.swift */,
+				B9908AC5239AFB190020D350 /* Info.plist */,
+			);
+			path = "Prophet's VoiceUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B9908A9D239AFB150020D350 /* Prophet's Voice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9908AC8239AFB190020D350 /* Build configuration list for PBXNativeTarget "Prophet's Voice" */;
+			buildPhases = (
+				B9908A9A239AFB150020D350 /* Sources */,
+				B9908A9B239AFB150020D350 /* Frameworks */,
+				B9908A9C239AFB150020D350 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Prophet's Voice";
+			productName = "Prophet's Voice";
+			productReference = B9908A9E239AFB150020D350 /* Prophet's Voice.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B9908AB3239AFB190020D350 /* Prophet's VoiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9908ACB239AFB190020D350 /* Build configuration list for PBXNativeTarget "Prophet's VoiceTests" */;
+			buildPhases = (
+				B9908AB0239AFB190020D350 /* Sources */,
+				B9908AB1239AFB190020D350 /* Frameworks */,
+				B9908AB2239AFB190020D350 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9908AB6239AFB190020D350 /* PBXTargetDependency */,
+			);
+			name = "Prophet's VoiceTests";
+			productName = "Prophet's VoiceTests";
+			productReference = B9908AB4239AFB190020D350 /* Prophet's VoiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B9908ABE239AFB190020D350 /* Prophet's VoiceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9908ACE239AFB190020D350 /* Build configuration list for PBXNativeTarget "Prophet's VoiceUITests" */;
+			buildPhases = (
+				B9908ABB239AFB190020D350 /* Sources */,
+				B9908ABC239AFB190020D350 /* Frameworks */,
+				B9908ABD239AFB190020D350 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9908AC1239AFB190020D350 /* PBXTargetDependency */,
+			);
+			name = "Prophet's VoiceUITests";
+			productName = "Prophet's VoiceUITests";
+			productReference = B9908ABF239AFB190020D350 /* Prophet's VoiceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B9908A96239AFB150020D350 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Resolve To Excel";
+				TargetAttributes = {
+					B9908A9D239AFB150020D350 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					B9908AB3239AFB190020D350 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = B9908A9D239AFB150020D350;
+					};
+					B9908ABE239AFB190020D350 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = B9908A9D239AFB150020D350;
+					};
+				};
+			};
+			buildConfigurationList = B9908A99239AFB150020D350 /* Build configuration list for PBXProject "Prophet's Voice" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B9908A95239AFB150020D350;
+			productRefGroup = B9908A9F239AFB150020D350 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B9908A9D239AFB150020D350 /* Prophet's Voice */,
+				B9908AB3239AFB190020D350 /* Prophet's VoiceTests */,
+				B9908ABE239AFB190020D350 /* Prophet's VoiceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B9908A9C239AFB150020D350 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9908AAE239AFB190020D350 /* LaunchScreen.storyboard in Resources */,
+				B9908AAB239AFB190020D350 /* Preview Assets.xcassets in Resources */,
+				B9908AA8239AFB190020D350 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9908AB2239AFB190020D350 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9908ABD239AFB190020D350 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B9908A9A239AFB150020D350 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9908AA2239AFB150020D350 /* AppDelegate.swift in Sources */,
+				B9908AA4239AFB150020D350 /* SceneDelegate.swift in Sources */,
+				B9908AA6239AFB150020D350 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9908AB0239AFB190020D350 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9908AB9239AFB190020D350 /* Prophet_s_VoiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9908ABB239AFB190020D350 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9908AC4239AFB190020D350 /* Prophet_s_VoiceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B9908AB6239AFB190020D350 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9908A9D239AFB150020D350 /* Prophet's Voice */;
+			targetProxy = B9908AB5239AFB190020D350 /* PBXContainerItemProxy */;
+		};
+		B9908AC1239AFB190020D350 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9908A9D239AFB150020D350 /* Prophet's Voice */;
+			targetProxy = B9908AC0239AFB190020D350 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B9908AAC239AFB190020D350 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9908AAD239AFB190020D350 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B9908AC6239AFB190020D350 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B9908AC7239AFB190020D350 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B9908AC9239AFB190020D350 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Prophet's Voice/Preview Content\"";
+				DEVELOPMENT_TEAM = CS679QM259;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Prophet's Voice/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ResolveToExcel.Prophet-s-Voice";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B9908ACA239AFB190020D350 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Prophet's Voice/Preview Content\"";
+				DEVELOPMENT_TEAM = CS679QM259;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Prophet's Voice/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ResolveToExcel.Prophet-s-Voice";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B9908ACC239AFB190020D350 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CS679QM259;
+				INFOPLIST_FILE = "Prophet's VoiceTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ResolveToExcel.Prophet-s-VoiceTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Prophet's Voice.app/Prophet's Voice";
+			};
+			name = Debug;
+		};
+		B9908ACD239AFB190020D350 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CS679QM259;
+				INFOPLIST_FILE = "Prophet's VoiceTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ResolveToExcel.Prophet-s-VoiceTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Prophet's Voice.app/Prophet's Voice";
+			};
+			name = Release;
+		};
+		B9908ACF239AFB190020D350 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CS679QM259;
+				INFOPLIST_FILE = "Prophet's VoiceUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ResolveToExcel.Prophet-s-VoiceUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Prophet's Voice";
+			};
+			name = Debug;
+		};
+		B9908AD0239AFB190020D350 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CS679QM259;
+				INFOPLIST_FILE = "Prophet's VoiceUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ResolveToExcel.Prophet-s-VoiceUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Prophet's Voice";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B9908A99239AFB150020D350 /* Build configuration list for PBXProject "Prophet's Voice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9908AC6239AFB190020D350 /* Debug */,
+				B9908AC7239AFB190020D350 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9908AC8239AFB190020D350 /* Build configuration list for PBXNativeTarget "Prophet's Voice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9908AC9239AFB190020D350 /* Debug */,
+				B9908ACA239AFB190020D350 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9908ACB239AFB190020D350 /* Build configuration list for PBXNativeTarget "Prophet's VoiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9908ACC239AFB190020D350 /* Debug */,
+				B9908ACD239AFB190020D350 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9908ACE239AFB190020D350 /* Build configuration list for PBXNativeTarget "Prophet's VoiceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9908ACF239AFB190020D350 /* Debug */,
+				B9908AD0239AFB190020D350 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B9908A96239AFB150020D350 /* Project object */;
+}
