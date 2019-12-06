@@ -9,13 +9,59 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var showSettings = false
+    @State var showSpeakers = false
+    @State var showTopics = false
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            if showSettings {
+                SettingsView(show: $showSettings)
+                    .transition(.move(edge: .trailing))
+            } else if showSpeakers {
+                SpeakerView(show: $showSpeakers)
+                    .transition(.move(edge: .bottom))
+            } else if showTopics {
+                TopicView(show: $showTopics)
+                    .transition(.move(edge: .bottom))
+            } else {
+                HStack {
+                    Spacer()
+                    Button(action: {withAnimation {self.showSettings = true}}) {
+                        Image(systemName: "gear")
+                            .scaleEffect(2.0)
+                            .padding()
+                            .accentColor(.black)
+                    }
+                }
+                Spacer()
+                HStack {
+                    Button(action: {withAnimation {self.showSpeakers = true}}) {
+                        Image(systemName: "rectangle.stack.person.crop.fill")
+                            .scaleEffect(2.0)
+                            .padding()
+                            .accentColor(.black)
+                    }
+                    Spacer()
+                    Button(action: {withAnimation {self.showTopics = true}}) {
+                        Image(systemName: "text.bubble.fill")
+                            .scaleEffect(2.0)
+                            .padding()
+                            .accentColor(.black)
+                    }
+                }
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+        }
     }
 }

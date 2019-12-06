@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B91B8BF6239B01AF00B1358E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF5239B01AF00B1358E /* SettingsView.swift */; };
+		B91B8BF8239B042B00B1358E /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF7239B042B00B1358E /* SpeakerView.swift */; };
+		B91B8BFA239B045100B1358E /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF9239B045100B1358E /* TopicView.swift */; };
 		B9908AA2239AFB150020D350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA1239AFB150020D350 /* AppDelegate.swift */; };
 		B9908AA4239AFB150020D350 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA3239AFB150020D350 /* SceneDelegate.swift */; };
 		B9908AA6239AFB150020D350 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA5239AFB150020D350 /* ContentView.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B91B8BF5239B01AF00B1358E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B91B8BF7239B042B00B1358E /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
+		B91B8BF9239B045100B1358E /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
 		B9908A9E239AFB150020D350 /* Prophet's Voice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prophet's Voice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9908AA1239AFB150020D350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9908AA3239AFB150020D350 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B91B8BF2239B015200B1358E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B91B8BF5239B01AF00B1358E /* SettingsView.swift */,
+				B91B8BF7239B042B00B1358E /* SpeakerView.swift */,
+				B91B8BF9239B045100B1358E /* TopicView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B9908A95239AFB150020D350 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +115,7 @@
 		B9908AA0239AFB150020D350 /* Prophet's Voice */ = {
 			isa = PBXGroup;
 			children = (
+				B91B8BF2239B015200B1358E /* Views */,
 				B9908AA1239AFB150020D350 /* AppDelegate.swift */,
 				B9908AA3239AFB150020D350 /* SceneDelegate.swift */,
 				B9908AA5239AFB150020D350 /* ContentView.swift */,
@@ -268,8 +285,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9908AA2239AFB150020D350 /* AppDelegate.swift in Sources */,
+				B91B8BF6239B01AF00B1358E /* SettingsView.swift in Sources */,
+				B91B8BFA239B045100B1358E /* TopicView.swift in Sources */,
 				B9908AA4239AFB150020D350 /* SceneDelegate.swift in Sources */,
 				B9908AA6239AFB150020D350 /* ContentView.swift in Sources */,
+				B91B8BF8239B042B00B1358E /* SpeakerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
