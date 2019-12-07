@@ -13,6 +13,8 @@ struct ContentView: View {
     @State var showSettings = false
     @State var showSpeakers = false
     @State var showTopics = false
+    @State var speaker : String? = nil
+    @State var speakers : [String] = []
     
     var body: some View {
         ZStack {
@@ -32,7 +34,7 @@ struct ContentView: View {
                     SettingsView(show: $showSettings)
                         .transition(.move(edge: .trailing))
                 } else if showSpeakers {
-                    SpeakerView(show: $showSpeakers)
+                    SpeakerView(show: $showSpeakers, speaker: $speaker, speakers: speakers)
                         .transition(.move(edge: .bottom))
                 } else if showTopics {
                     TopicView(show: $showTopics)
@@ -70,7 +72,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
-            ContentView()
+            ContentView(speakers: ["Thomas Monson", "Spencer W. Kimball"])
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }
