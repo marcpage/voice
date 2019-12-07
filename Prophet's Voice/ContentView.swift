@@ -23,7 +23,7 @@ struct ContentView: View {
                 .frame(maxWidth: UIScreen.main.bounds.width,
                        maxHeight: UIScreen.main.bounds.height)
             Rectangle()
-                .foregroundColor(.gray)
+                .foregroundColor(.black)
                 .opacity(0.5)
                 .edgesIgnoringSafeArea(.all)
 
@@ -44,7 +44,6 @@ struct ContentView: View {
                             Image(systemName: "gear")
                                 .scaleEffect(2.0)
                                 .padding()
-                                .accentColor(.black)
                         }
                     }
                     Spacer()
@@ -53,18 +52,17 @@ struct ContentView: View {
                             Image(systemName: "rectangle.stack.person.crop.fill")
                                 .scaleEffect(2.0)
                                 .padding()
-                                .accentColor(.black)
                         }
                         Spacer()
                         Button(action: {withAnimation {self.showTopics = true}}) {
                             Image(systemName: "text.bubble.fill")
                                 .scaleEffect(2.0)
                                 .padding()
-                                .accentColor(.black)
                         }
                     }
                 }
             }
+            .accentColor(.white)
         }
     }
 }
