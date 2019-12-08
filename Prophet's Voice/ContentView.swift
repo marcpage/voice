@@ -13,45 +13,58 @@ struct ContentView: View {
     @State var showSettings = false
     @State var showSpeakers = false
     @State var showTopics = false
+    @State var speaker : String? = nil
+    @State var speakers : [String] = []
     
     var body: some View {
-        VStack {
-            if showSettings {
-                SettingsView(show: $showSettings)
-                    .transition(.move(edge: .trailing))
-            } else if showSpeakers {
-                SpeakerView(show: $showSpeakers)
-                    .transition(.move(edge: .bottom))
-            } else if showTopics {
-                TopicView(show: $showTopics)
-                    .transition(.move(edge: .bottom))
-            } else {
-                HStack {
-                    Spacer()
-                    Button(action: {withAnimation {self.showSettings = true}}) {
-                        Image(systemName: "gear")
-                            .scaleEffect(2.0)
-                            .padding()
-                            .accentColor(.black)
+        ZStack {
+            Image("background")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .edgesIgnoringSafeArea(.all)
+                .frame(maxWidth: UIScreen.main.bounds.width,
+                       maxHeight: UIScreen.main.bounds.height)
+            Rectangle()
+                .foregroundColor(.black)
+                .opacity(0.5)
+                .edgesIgnoringSafeArea(.all)
+
+            VStack {
+                if showSettings {
+                    SettingsView(show: $showSettings)
+                        .transition(.move(edge: .trailing))
+                } else if showSpeakers {
+                    SpeakerView(show: $showSpeakers, speaker: $speaker, speakers: speakers)
+                        .transition(.move(edge: .bottom))
+                } else if showTopics {
+                    TopicView(show: $showTopics)
+                        .transition(.move(edge: .bottom))
+                } else {
+                    HStack {
+                        Spacer()
+                        Button(action: {withAnimation {self.showSettings = true}}) {
+                            Image(systemName: "gear")
+                                .scaleEffect(2.0)
+                                .padding()
+                        }
                     }
-                }
-                Spacer()
-                HStack {
-                    Button(action: {withAnimation {self.showSpeakers = true}}) {
-                        Image(systemName: "rectangle.stack.person.crop.fill")
-                            .scaleEffect(2.0)
-                            .padding()
-                            .accentColor(.black)
-                    }
                     Spacer()
-                    Button(action: {withAnimation {self.showTopics = true}}) {
-                        Image(systemName: "text.bubble.fill")
-                            .scaleEffect(2.0)
-                            .padding()
-                            .accentColor(.black)
+                    HStack {
+                        Button(action: {withAnimation {self.showSpeakers = true}}) {
+                            Image(systemName: "rectangle.stack.person.crop.fill")
+                                .scaleEffect(2.0)
+                                .padding()
+                        }
+                        Spacer()
+                        Button(action: {withAnimation {self.showTopics = true}}) {
+                            Image(systemName: "text.bubble.fill")
+                                .scaleEffect(2.0)
+                                .padding()
+                        }
                     }
                 }
             }
+            .accentColor(.white)
         }
     }
 }
@@ -59,7 +72,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
-            ContentView()
+            ContentView(speakers: ["Thomas Monson", "Spencer W. Kimball"])
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }
