@@ -10,6 +10,7 @@ import hashlib
 import json
 import os
 import re
+import sys
 import threading
 import time
 import traceback
@@ -35,23 +36,24 @@ ConferenceDataSessionDivider = re.compile(r'<div class="section tile-wrapper lay
 ConferenceSessionName = re.compile(r'<span class="section__header__title">(?P<name>[^<]+)</span>')
 ConferenceTalkDivider = re.compile(r'<div class="lumen-tile lumen-tile--horizontal lumen-tile--list">')
 ConferenceTalkUrl = re.compile(r'<a href="(?P<url>[^"]+)" class="lumen-tile__link">')
-ConferenceTalkThumbnail = re.compile(r'<img src="(?P<thumbnail_url>https://[^"]+)" alt="(?P<thumbnail_name>[^"]+)" class="lumen-image__image">')
-ConferenceTalkTitle = re.compile(r'<div class="lumen-tile__title">\s+<div>(?P<title>[^<]+)</div>\s+</div>')
+ConferenceTalkThumbnail = re.compile(r'<img src="(?P<thumbnail_url>(https:)?//[^"]+)" alt="(?P<thumbnail_name>[^"]+)" class="lumen-image__image">')
+ConferenceTalkTitle = re.compile(r'<div class="lumen-tile__title">\s*(?P<title>[^<]+)\s*</?div', re.MULTILINE)
 ConferenceTalkSpeaker = re.compile(r'<div class="lumen-tile__content">(?P<speaker>[^<]+)</div>')
 
 TalkVideoPattern = re.compile(r'<source type=video/mp4 data-width=(?P<width>[0-9]+) data-height=(?P<height>[0-9]+) data-file-size=(?P<size>[0-9]+) src=(?P<url>[^>]+)>')
 TalkAudioPattern = re.compile(r'<a href="(?P<mp3_url>[^"]+\.mp3[^"]+)" title="[^"]+" class=[^>]+ download="">')
+TalkAudioAlternate = re.compile(r'<source src="(?P<mp3_url>[^"]+.mp3[^"]*)">')
 TalkRolePattern = re.compile(r'<p class=author-role data-aid=\S+ id=author2>(?P<role>[^<]+)</p>')
 TalkContentsBegin = re.compile(r'<div class=body-block>')
 TalkContentsEnd = re.compile(r'</article>')
 
 Non_Alpha_Numeric = re.compile(r'[^A-Za-z0-9]+')
 Html_Tags = re.compile(r'<[^>]+>')
+Title_Tags = re.compile(r'</?(em|cite|div)>')
 
 def do_log(m):
     with open(Log_Path, 'a') as f:
         f.write("[%s] %s\n"%(time.strftime('%Y/%m/%d %H:%M:%S'), m))
-        f.flush()
 
 def start_thread(target, *args):
     t = threading.Thread(target=target, args=args)
@@ -59,23 +61,41 @@ def start_thread(target, *args):
     t.start()
     return t
 
+def status(s):
+    sys.stderr.write(s)
+    sys.stderr.flush()
+
 def url_to_cache_path(name, s):
     hasher = hashlib.new('sha256')
     hasher.update(s.encode('utf-8'))
     return os.path.join(Cache_Path, Non_Alpha_Numeric.sub('_', name) + '_' + hasher.hexdigest())
 
+Url_Read_Time = 0.0
+Url_Read_Count = 0
 def read_url(name, url, cache=True):
     try:
         if cache:
             with open(url_to_cache_path(name, url), 'r') as f: contents = f.read()
         else: raise SyntaxError()
     except:
+        global Url_Read_Time
+        global Url_Read_Count
+
+        start_time = time.time()
         request = urllib.Request(url, headers={'User-Agent': User_Agent})
         contents = urllib.urlopen(request).read().decode('utf-8')
+        Url_Read_Time += (time.time() - start_time)
+        Url_Read_Count += 1
+        #time.sleep(Url_Read_Time / Url_Read_Count)
         with open(url_to_cache_path(name, url), 'w') as f: f.write(contents)
     return contents
 
 def clean_url(url): return Church_Server + url.replace('&#x3D;', '=')
+
+def cleanup_dict(d):
+    for key in d:
+        try: d[key] = d[key].strip()
+        except: pass
 
 def clean_html(html):
     """ TODO: Clean out \ u XXXXX unicode
@@ -87,7 +107,7 @@ def scrape_block_contents(contents, start_pattern, end_pattern, include_marginss
     if len(parts) > 1:
         prefix = parts[0]
         parts = end_pattern.split(parts[1])
-    else: raise SyntaxError('Need to update regex for ' + name + ': ' + start_pattern.pattern)
+    else: raise SyntaxError('Need to update regex: ' + start_pattern.pattern)
     if len(parts) > 1:
         suffix = parts[-1]
         return (prefix, ''.join(parts[:-1]), suffix) if include_marginss else ''.join(parts[:-1])
@@ -117,6 +137,7 @@ def scrape_data(contents, pattern, update=None):
     has_data = pattern.search(contents)
     
     if not has_data:
+        do_log('Could not find "' + pattern.pattern + '" in\n' + contents)
         raise SyntaxError('Need to update regex: ' + pattern.pattern)
     
     if None == update:
@@ -136,6 +157,7 @@ def scrape_conferences(root_url):
             
         return conferences_list
     except:
+        do_log(traceback.format_exc())
         do_log('*** Error while trying to fetch root url: ' + root_url)
         raise
 
@@ -156,16 +178,24 @@ def scrape_conference(name, url):
                     talk_info = {'session': session_name, 'conference' : name}
                     scrape_data(talk_content, ConferenceTalkUrl, talk_info)
                     talk_info['url'] = clean_url(talk_info['url'])
-                    scrape_data(talk_content, ConferenceTalkTitle, talk_info)
+                    scrape_data(Title_Tags.sub('', talk_content), ConferenceTalkTitle, talk_info)
                     scrape_data(talk_content, ConferenceTalkSpeaker, talk_info)
-                    scrape_data(talk_content, ConferenceTalkThumbnail, talk_info)
+                    try: scrape_data(talk_content, ConferenceTalkThumbnail, talk_info)
+                    except: pass
+                    cleanup_dict(talk_info)
+                    
+                    if talk_info.get('thumbnail_url', '').startswith('//'):
+                        talk_info['thumbnail_url'] = 'https:' + talk_info['thumbnail_url']
+                        
                     talks.append(talk_info)
                 except:
+                    do_log(traceback.format_exc())
                     do_log('*** Error processing session: ' + str(talk_info))
                     do_log(talk_content)
                     raise
 
     except:
+        do_log(traceback.format_exc())
         do_log('*** Error while trying to fetch ' + name + ' url: ' + url)
         raise
     
@@ -183,17 +213,38 @@ def update_talk(talk_info):
     }
     """
     contents = read_url(talk_info['conference'] + ':' + talk_info['session'] + ':' + talk_info['title'], talk_info['url'])
-    scrape_data(contents, TalkAudioPattern, talk_info)
-    scrape_data(contents, TalkRolePattern, talk_info)
-    video_list = scrape_data_list(contents, TalkVideoPattern)
-    talk_info['videos'] = {(v['width'] + 'x' + v['height']):v['url'] for v in video_list}
-    talk_info['contents'] = clean_html(scrape_block_contents(contents, TalkContentsBegin, TalkContentsEnd))
+
+    try: scrape_data(contents, TalkAudioPattern, talk_info)
+    except: scrape_data(contents, TalkAudioAlternate, talk_info)
+
+    try: scrape_data(contents, TalkRolePattern, talk_info)
+    except: pass
+
+    try:
+        video_list = scrape_data_list(contents, TalkVideoPattern)
+        talk_info['videos'] = {(v['width'] + 'x' + v['height']):v['url'] for v in video_list}
+    except: pass
+    
+    try:
+        talk_info['contents'] = clean_html(scrape_block_contents(contents, TalkContentsBegin, TalkContentsEnd))
+    except: pass
+    
     return talk_info
 
+def get_queue_elements(q):
+    elements = []
+    
+    while not q.empty():
+        elements.append(q.get())
+    
+    for element in elements: q.put(element)
+    
+    return elements
+    
 def find_talks(conference_queue, talk_queue):
     while True:
         next = conference_queue.get()
-        
+
         if None == next:
             conference_queue.put(None)
             break
@@ -201,30 +252,45 @@ def find_talks(conference_queue, talk_queue):
         do_log(next['name'])
         
         try:
-            for talk in scrape_conference(next['name'], next['url']): talk_queue.put(talk)
+            talks = scrape_conference(next['name'], next['url'])
+            for talk in talks:
+                talk_queue.put(talk)
+            #status('+')
         except:
-            do_log('*** Error finding talks: ' + str(next))
+            print(traceback.format_exc())
+            print("Error gettings talks: " + next['name'])
+            print(next['url'])
             do_log(traceback.format_exc())
+            do_log('*** Error finding talks: ' + str(next))
 
 def update_talks(talk_queue, final_talk_queue):
+    last_conference = None
     while True:
         next = talk_queue.get()
         
         if None == next:
             talk_queue.put(None)
             break
-        
-        print(next['conference'] + ':' + next['session'] + ':' + next['title'])
-        do_log(next['conference'] + ':' + next['session'] + ':' + next['title'])
 
+        do_log(next['conference'] + ':' + next['session'] + ':' + next['title'])
+        
+        if last_conference != next['conference']:
+            last_conference = next['conference']
+            status(last_conference + '\n')
+            
         try:
-            final_talk_queue.put(update_talk(next))
+            update_talk(next)
+            #status('.')
         except:
-            final_talk_queue.put(next)
-            do_log('*** Error updating talks: ' + str(next))
+            print(traceback.format_exc())
+            print("Error updating talk: " + (next['conference'] + ':' + next['session'] + ':' + next['title']))
+            print(next['url'])
             do_log(traceback.format_exc())
+            do_log('*** Error updating talks: ' + str(next))
+        final_talk_queue.put(next)
 
 def main():
+    do_log("STARTING RUN")
     if not os.path.isdir(Cache_Path): os.makedirs(Cache_Path)
     
     conference_queue = queue.Queue()
@@ -234,23 +300,26 @@ def main():
     threads = [
         start_thread(find_talks, conference_queue, raw_talk_queue),
         start_thread(update_talks, raw_talk_queue, final_talk_queue),
+        start_thread(update_talks, raw_talk_queue, final_talk_queue),
+        start_thread(update_talks, raw_talk_queue, final_talk_queue),
     ]
 
     conferences_list = scrape_conferences(Root_Url)
 
     for conference in conferences_list: conference_queue.put(conference)
 
-    conference_queue.put(None)
-    
     talks = []
     
     while True:
-        print("**** QUEUES **** %d %d %d"%(conference_queue.qsize(), raw_talk_queue.qsize(), final_talk_queue.qsize()))
         if conference_queue.empty() and raw_talk_queue.empty() and final_talk_queue.empty():
-            time.sleep(0.500)
+            time.sleep(0.100)
             if conference_queue.empty() and raw_talk_queue.empty() and final_talk_queue.empty():
                 break
-        talks.append(final_talk_queue.get())
+        
+        try:
+            talks.append(final_talk_queue.get(timeout=0.100))
+        except queue.Empty:
+            pass
     
 if __name__ == '__main__': main()
 
