@@ -10,7 +10,6 @@
 		B91B8BF6239B01AF00B1358E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF5239B01AF00B1358E /* SettingsView.swift */; };
 		B91B8BF8239B042B00B1358E /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF7239B042B00B1358E /* SpeakerView.swift */; };
 		B91B8BFA239B045100B1358E /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF9239B045100B1358E /* TopicView.swift */; };
-		B986E758239DBA87008283FC /* general_conference_talks.json in Resources */ = {isa = PBXBuildFile; fileRef = B986E757239DBA87008283FC /* general_conference_talks.json */; };
 		B9908AA2239AFB150020D350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA1239AFB150020D350 /* AppDelegate.swift */; };
 		B9908AA4239AFB150020D350 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA3239AFB150020D350 /* SceneDelegate.swift */; };
 		B9908AA6239AFB150020D350 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA5239AFB150020D350 /* ContentView.swift */; };
@@ -42,7 +41,6 @@
 		B91B8BF5239B01AF00B1358E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B91B8BF7239B042B00B1358E /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
 		B91B8BF9239B045100B1358E /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
-		B986E757239DBA87008283FC /* general_conference_talks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = general_conference_talks.json; sourceTree = "<group>"; };
 		B9908A9E239AFB150020D350 /* Prophet's Voice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prophet's Voice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9908AA1239AFB150020D350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9908AA3239AFB150020D350 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 		B986E754239DB9F6008283FC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B986E757239DBA87008283FC /* general_conference_talks.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -278,7 +275,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B986E758239DBA87008283FC /* general_conference_talks.json in Resources */,
 				B9908AAE239AFB190020D350 /* LaunchScreen.storyboard in Resources */,
 				B9908AAB239AFB190020D350 /* Preview Assets.xcassets in Resources */,
 				B9908AA8239AFB190020D350 /* Assets.xcassets in Resources */,
