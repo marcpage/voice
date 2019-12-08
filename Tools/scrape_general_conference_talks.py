@@ -6,6 +6,8 @@
 #  Created by Marc on 12/8/19.
 #  Copyright © 2019 Resolve To Excel. All rights reserved.
 
+# // MARK: - Imports
+
 import hashlib
 import json
 import os
@@ -18,6 +20,8 @@ try: import urllib2 as urllib
 except: import urllib.request as urllib
 try: import Queue as queue
 except: import queue
+
+# // MARK: - Constants
 
 Log_Path = '/tmp/scrape_general_conference_talks.txt'
 
@@ -50,6 +54,8 @@ TalkContentsEnd = re.compile(r'</article>')
 Non_Alpha_Numeric = re.compile(r'[^A-Za-z0-9]+')
 Html_Tags = re.compile(r'<[^>]+>')
 Title_Tags = re.compile(r'</?(em|cite|div)>')
+
+# // MARK: - Helpers
 
 def do_log(m):
     with open(Log_Path, 'a') as f:
@@ -86,21 +92,20 @@ def read_url(name, url, cache=True):
         contents = urllib.urlopen(request).read().decode('utf-8')
         Url_Read_Time += (time.time() - start_time)
         Url_Read_Count += 1
-        #time.sleep(Url_Read_Time / Url_Read_Count)
+        #time.sleep(Url_Read_Time / Url_Read_Count) #  could be used to throttle
         with open(url_to_cache_path(name, url), 'w') as f: f.write(contents)
     return contents
 
 def clean_url(url): return Church_Server + url.replace('&#x3D;', '=')
+
+def clean_html(html): return Html_Tags.sub('', html)
 
 def cleanup_dict(d):
     for key in d:
         try: d[key] = d[key].strip()
         except: pass
 
-def clean_html(html):
-    """ TODO: Clean out \ u XXXXX unicode
-    """
-    return Html_Tags.sub('', html)
+# // MARK: - Text Scraping Utilities
 
 def scrape_block_contents(contents, start_pattern, end_pattern, include_marginss=False):
     parts = start_pattern.split(contents, 1)
@@ -146,6 +151,8 @@ def scrape_data(contents, pattern, update=None):
     update.update(has_data.groupdict())
     return update
     
+# // MARK: - General Conference
+
 def scrape_conferences(root_url):
     try:
         contents = read_url('root', root_url)
@@ -226,21 +233,13 @@ def update_talk(talk_info):
     except: pass
     
     try:
-        talk_info['contents'] = clean_html(scrape_block_contents(contents, TalkContentsBegin, TalkContentsEnd))
+        pass #talk_info['contents'] = clean_html(scrape_block_contents(contents, TalkContentsBegin, TalkContentsEnd))
     except: pass
     
     return talk_info
 
-def get_queue_elements(q):
-    elements = []
-    
-    while not q.empty():
-        elements.append(q.get())
-    
-    for element in elements: q.put(element)
-    
-    return elements
-    
+# // MARK: - Threads
+
 def find_talks(conference_queue, talk_queue):
     while True:
         next = conference_queue.get()
@@ -289,6 +288,8 @@ def update_talks(talk_queue, final_talk_queue):
             do_log('*** Error updating talks: ' + str(next))
         final_talk_queue.put(next)
 
+# // MARK: - Main
+
 def main():
     do_log("STARTING RUN")
     if not os.path.isdir(Cache_Path): os.makedirs(Cache_Path)
@@ -321,5 +322,7 @@ def main():
         except queue.Empty:
             pass
     
+    with open('general_conference_talks.json', 'w') as f:
+        json.dump(talks, f, indent=2)
+    
 if __name__ == '__main__': main()
-
