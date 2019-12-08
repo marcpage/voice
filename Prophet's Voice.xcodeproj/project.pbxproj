@@ -55,6 +55,7 @@
 		B9908ABF239AFB190020D350 /* Prophet's VoiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Prophet's VoiceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9908AC3239AFB190020D350 /* Prophet_s_VoiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prophet_s_VoiceUITests.swift; sourceTree = "<group>"; };
 		B9908AC5239AFB190020D350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9A358DF239D3895008380EC /* scrape_general_conference_talks.py */ = {isa = PBXFileReference; explicitFileType = text.script.python; fileEncoding = 4; path = scrape_general_conference_talks.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +96,7 @@
 		B9908A95239AFB150020D350 = {
 			isa = PBXGroup;
 			children = (
+				B9A358DE239D3851008380EC /* Tools */,
 				B9908AA0239AFB150020D350 /* Prophet's Voice */,
 				B9908AB7239AFB190020D350 /* Prophet's VoiceTests */,
 				B9908AC2239AFB190020D350 /* Prophet's VoiceUITests */,
@@ -151,6 +153,14 @@
 				B9908AC5239AFB190020D350 /* Info.plist */,
 			);
 			path = "Prophet's VoiceUITests";
+			sourceTree = "<group>";
+		};
+		B9A358DE239D3851008380EC /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				B9A358DF239D3895008380EC /* scrape_general_conference_talks.py */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
