@@ -54,6 +54,7 @@ TalkContentsEnd = re.compile(r'</article>')
 Non_Alpha_Numeric = re.compile(r'[^A-Za-z0-9]+')
 Html_Tags = re.compile(r'<[^>]+>')
 Title_Tags = re.compile(r'</?(em|cite|div)>')
+Year_Pattern = re.compile(r'((19|20)[0-9][0-9])')
 
 # // MARK: - Helpers
 
@@ -175,14 +176,26 @@ def scrape_conference(name, url):
         contents = read_url(name, url)
         sessions_contents = scrape_block_contents(contents, ConferenceDataStart, ConferenceDataEnd)
         sessions_contents_list = split_data(sessions_contents, ConferenceDataSessionDivider)
+        session_index = 0
         
         for session_content in sessions_contents_list:
             session_name = scrape_data(session_content, ConferenceSessionName)['name']
             talk_contents_list = split_data(session_content, ConferenceTalkDivider)
-
+            session_index += 1
+            talk_index = 0
+            
             for talk_content in talk_contents_list:
                 try:
-                    talk_info = {'session': session_name, 'conference' : name}
+                    talk_index += 1
+                    has_year = Year_Pattern.search(name)
+                    year = has_year.group(0) if has_year else 'XXXX'
+                    month = '04' if 'april' in name.lower() else ('10' if 'october' in name.lower() else 'XX')
+                    
+                    talk_info = {
+                        'session': session_name,
+                        'conference' : name,
+                        'identifier' : '%s%s%02d%02d'%(year, month, session_index, talk_index)
+                    }
                     scrape_data(talk_content, ConferenceTalkUrl, talk_info)
                     talk_info['url'] = clean_url(talk_info['url'])
                     scrape_data(Title_Tags.sub('', talk_content), ConferenceTalkTitle, talk_info)
@@ -228,8 +241,8 @@ def update_talk(talk_info):
     except: pass
 
     try:
-        video_list = scrape_data_list(contents, TalkVideoPattern)
-        talk_info['videos'] = {(v['width'] + 'x' + v['height']):v['url'] for v in video_list}
+        pass #video_list = scrape_data_list(contents, TalkVideoPattern)
+        #talk_info['videos'] = {(v['width'] + 'x' + v['height']):v['url'] for v in video_list}
     except: pass
     
     try:
@@ -322,8 +335,8 @@ def main():
         except queue.Empty:
             pass
     
-    talks.sort(key=lambda x:x['conference'] + x['session'] + x['title'])
+    talks.sort(key=lambda x:x['identifier'], reverse=True)
     with open(sys.argv[1], 'w') as f:
-        json.dump(talks, f, indent=2, sort_keys=True)
+        json.dump([t for t in talks if 'mp3_url' in t], f, indent=2, sort_keys=True)
     
 if __name__ == '__main__': main()
