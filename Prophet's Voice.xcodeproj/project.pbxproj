@@ -182,6 +182,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9908AC8239AFB190020D350 /* Build configuration list for PBXNativeTarget "Prophet's Voice" */;
 			buildPhases = (
+				B9611871239DCC63009F5308 /* ShellScript */,
 				B9908A9A239AFB150020D350 /* Sources */,
 				B9908A9B239AFB150020D350 /* Frameworks */,
 				B9908A9C239AFB150020D350 /* Resources */,
@@ -305,6 +306,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B9611871239DCC63009F5308 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Tools/scrape_general_conference_talks.py",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/general_conference_talks.json",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n/usr/local/bin/python3 ${SCRIPT_INPUT_FILE_0} ${SCRIPT_OUTPUT_FILE_0}\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B9908A9A239AFB150020D350 /* Sources */ = {

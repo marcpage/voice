@@ -322,7 +322,7 @@ def main():
         except queue.Empty:
             pass
     
-    with open('general_conference_talks.json', 'w') as f:
+    with open(sys.argv[1], 'w') as f:
         json.dump(talks, f, indent=2)
     
 if __name__ == '__main__': main()
