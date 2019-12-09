@@ -322,7 +322,8 @@ def main():
         except queue.Empty:
             pass
     
+    talks.sort(key=lambda x:x['conference'] + x['session'] + x['title'])
     with open(sys.argv[1], 'w') as f:
-        json.dump(talks, f, indent=2)
+        json.dump(talks, f, indent=2, sort_keys=True)
     
 if __name__ == '__main__': main()
