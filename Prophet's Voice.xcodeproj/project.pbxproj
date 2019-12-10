@@ -10,8 +10,8 @@
 		B91B8BF6239B01AF00B1358E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF5239B01AF00B1358E /* SettingsView.swift */; };
 		B91B8BF8239B042B00B1358E /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF7239B042B00B1358E /* SpeakerView.swift */; };
 		B91B8BFA239B045100B1358E /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF9239B045100B1358E /* TopicView.swift */; };
-		B9372E21239DBBC50030F9AF /* general_conference_talks.json in Resources */ = {isa = PBXBuildFile; fileRef = B9372E20239DBBC50030F9AF /* general_conference_talks.json */; settings = {ASSET_TAGS = (default_talks, ); }; };
-		B9372E22239DBBC50030F9AF /* general_conference_talks.json in Resources */ = {isa = PBXBuildFile; fileRef = B9372E20239DBBC50030F9AF /* general_conference_talks.json */; settings = {ASSET_TAGS = (default_talks, ); }; };
+		B9372E21239DBBC50030F9AF /* general_conference_talks.json in Resources */ = {isa = PBXBuildFile; fileRef = B9372E20239DBBC50030F9AF /* general_conference_talks.json */; };
+		B9372E22239DBBC50030F9AF /* general_conference_talks.json in Resources */ = {isa = PBXBuildFile; fileRef = B9372E20239DBBC50030F9AF /* general_conference_talks.json */; };
 		B9908AA2239AFB150020D350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA1239AFB150020D350 /* AppDelegate.swift */; };
 		B9908AA4239AFB150020D350 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA3239AFB150020D350 /* SceneDelegate.swift */; };
 		B9908AA6239AFB150020D350 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA5239AFB150020D350 /* ContentView.swift */; };

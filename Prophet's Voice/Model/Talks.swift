@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum TalkError: Error {
+    case BundleFileNotFound(String)
+}
+
 struct ConferenceTalk : Codable {
     var identifier : String
     var conference : String
@@ -17,6 +21,19 @@ struct ConferenceTalk : Codable {
     var thumbnail_url : String?
     var mp3_url : String
     var url : String
+}
+
+extension ConferenceTalk {
+    static func load(from url:URL) throws -> [ConferenceTalk]  {
+        let data = try Data(contentsOf: url, options: .mappedIfSafe)
+        return try JSONDecoder().decode([ConferenceTalk].self, from: data)
+    }
+    static func load(named: String, withExtension: String) throws -> [ConferenceTalk] {
+        guard let talkUrl = Bundle.main.url(forResource: named, withExtension: withExtension) else {
+            throw TalkError.BundleFileNotFound(named + "." + withExtension)
+        }
+        return try load(from: talkUrl)
+    }
 }
 
 extension Array where Element == ConferenceTalk {
@@ -38,6 +55,7 @@ extension Array where Element == ConferenceTalk {
         }
     }
 }
+
 /*
  #!/usr/bin/swift
 

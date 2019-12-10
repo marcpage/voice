@@ -19,16 +19,47 @@ class Prophet_s_VoiceTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+    func testConferenceTalkLoadingPerformance() {
+        let bundle = Bundle(for: type(of: self))
+        guard let path = bundle.url(forResource: "general_conference_talks", withExtension: "json") else {
+            XCTFail()
+            return
+        }
         self.measure {
-            // Put the code you want to measure the time of here.
+            do {
+                let talks = try ConferenceTalk.load(from: path)
+                XCTAssert(talks.count > 0)
+            } catch {
+                XCTFail()
+            }
         }
     }
+    
+    func testConferenceTalk() {
+        let bundle = Bundle(for: type(of: self))
+        guard let path = bundle.url(forResource: "general_conference_talks", withExtension: "json") else {
+            XCTFail()
+            return
+        }
+        do {
+            var talks = try ConferenceTalk.load(from: path)
+            
+            XCTAssert(talks.count > 0)
+            
+            let noImageTalks = talks.filter {$0.thumbnail_url == nil}
+            
+            XCTAssert(noImageTalks.count > 0)
+            
+            talks.fillInMissingThumbnails()
 
+            let noImageTalksCleaned = talks.filter {$0.thumbnail_url == nil}
+            
+            XCTAssert(noImageTalksCleaned.count > 0)
+            XCTAssert(noImageTalksCleaned.count < talks.count)
+
+        } catch {
+            XCTFail()
+        }
+    }
+    
 }
