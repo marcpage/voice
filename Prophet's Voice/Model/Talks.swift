@@ -26,7 +26,10 @@ struct ConferenceTalk : Codable {
 extension ConferenceTalk {
     static func load(from url:URL) throws -> [ConferenceTalk]  {
         let data = try Data(contentsOf: url, options: .mappedIfSafe)
-        return try JSONDecoder().decode([ConferenceTalk].self, from: data)
+        var talks = try JSONDecoder().decode([ConferenceTalk].self, from: data)
+        
+        talks.fixUnsecureUrls()
+        return talks
     }
     static func load(named: String, withExtension: String) throws -> [ConferenceTalk] {
         guard let talkUrl = Bundle.main.url(forResource: named, withExtension: withExtension) else {
@@ -54,6 +57,20 @@ extension Array where Element == ConferenceTalk {
             }
         }
     }
+    mutating func fixUnsecureUrls() {
+        for (index, talk) in self.enumerated() {
+            if let url = talk.thumbnail_url, url.starts(with: "http:") {
+                self[index].thumbnail_url = url.replacingOccurrences(of: "http:", with: "https:")
+            }
+            if talk.mp3_url.starts(with: "http:") {
+                self[index].mp3_url = talk.mp3_url.replacingOccurrences(of: "http:", with: "https:")
+            }
+            if talk.url.starts(with: "http:") {
+                self[index].url = talk.url.replacingOccurrences(of: "http:", with: "https:")
+            }
+        }
+    }
+
 }
 
 /*
