@@ -13,8 +13,11 @@ struct ContentView: View {
     @State var showSettings = false
     @State var showSpeakers = false
     @State var showTopics = false
+    @State var playing = false
     @State var speaker : String? = nil
     @State var speakers : [String] = []
+    @State var love = false
+    @State var tags:[String] = []
     
     var body: some View {
         ZStack {
@@ -32,7 +35,7 @@ struct ContentView: View {
             VStack {
                 if showSettings {
                     SettingsView(show: $showSettings)
-                        .transition(.move(edge: .trailing))
+                        .transition(.move(edge: .leading))
                 } else if showSpeakers {
                     SpeakerView(show: $showSpeakers, speaker: $speaker, speakers: speakers)
                         .transition(.move(edge: .bottom))
@@ -41,14 +44,56 @@ struct ContentView: View {
                         .transition(.move(edge: .bottom))
                 } else {
                     HStack {
-                        Spacer()
                         Button(action: {withAnimation {self.showSettings = true}}) {
                             Image(systemName: "gear")
                                 .scaleEffect(2.0)
                                 .padding()
                         }
+                        Spacer()
+                        Button(action: {self.love.toggle()}) {
+                            Image(systemName: love ? "heart.fill" : "heart")
+                                .scaleEffect(2.0)
+                                .padding()
+                        }
+                        Button(action: {self.tags.append("another")}) {
+                            Image(systemName: tags.count > 0 ? "tag.fill" : "tag")
+                                .scaleEffect(2.0)
+                                .padding()
+                        }
                     }
                     Spacer()
+                    Text("What should I say?")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .fontWeight(.heavy)
+                    Text("Spencer W. Kimball")
+                        .foregroundColor(.white)
+                    Text("April 2019")
+                        .foregroundColor(.white)
+                    Text("Saturday Morning Session")
+                        .foregroundColor(.white)
+                    HStack {
+                        Spacer()
+                        Button(action: {}) {
+                            Image(systemName: "gobackward.30")
+                                .scaleEffect(2.0)
+                                .padding()
+                        }
+                        Spacer()
+                        Button(action: {self.playing.toggle()}) {
+                            Image(systemName: playing ? "pause.circle.fill" : "play.circle.fill")
+                                .scaleEffect(playing ? 2.0 : 3.0)
+                                .padding()
+                        }
+                        Spacer()
+                        Button(action: {}) {
+                            Image(systemName: "goforward.30")
+                                .scaleEffect(2.0)
+                                .padding()
+                        }
+                        Spacer()
+                    }
+                    Spacer().frame(height:30)
                     HStack {
                         Button(action: {withAnimation {self.showSpeakers = true}}) {
                             Image(systemName: "rectangle.stack.person.crop.fill")

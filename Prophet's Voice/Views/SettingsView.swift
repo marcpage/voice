@@ -22,7 +22,7 @@ struct SettingsView: View {
             VStack {
                 HStack {
                     Button(action: {withAnimation {self.show = false}}) {
-                        Image(systemName: "chevron.right.circle.fill")
+                        Image(systemName: "chevron.left.circle.fill")
                             .scaleEffect(2.0)
                             .padding()
                             .accentColor(.black)
