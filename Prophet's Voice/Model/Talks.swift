@@ -26,10 +26,7 @@ struct ConferenceTalk : Codable {
 extension ConferenceTalk {
     static func load(from url:URL) throws -> [ConferenceTalk]  {
         let data = try Data(contentsOf: url, options: .mappedIfSafe)
-        var talks = try JSONDecoder().decode([ConferenceTalk].self, from: data)
-        
-        talks.fixUnsecureUrls()
-        return talks
+        return try JSONDecoder().decode([ConferenceTalk].self, from: data)
     }
     static func load(named: String, withExtension: String) throws -> [ConferenceTalk] {
         guard let talkUrl = Bundle.main.url(forResource: named, withExtension: withExtension) else {
