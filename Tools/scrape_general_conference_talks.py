@@ -340,6 +340,16 @@ def main():
             pass
     
     talks.sort(key=lambda x:x['identifier'], reverse=True)
+    
+    missing_thumbnails = {}
+    for talk in talks:
+        if talk.get('thumbnail_url', None) and talk['speaker'] not in missing_thumbnails:
+            missing_thumbnails[talk['speaker']] = talk['thumbnail_url']
+    
+    for talk in talks:
+        if not talk.get('thumbnail_url', None) and talk['speaker'] in missing_thumbnails:
+            talk['thumbnail_url'] = missing_thumbnails[talk['speaker']]
+
     with open(sys.argv[1], 'w') as f:
         json.dump([t for t in talks if 'mp3_url' in t], f, indent=2, sort_keys=True)
     
