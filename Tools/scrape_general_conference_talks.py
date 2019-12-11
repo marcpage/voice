@@ -200,7 +200,9 @@ def scrape_conference(name, url):
                     talk_info['url'] = clean_url(talk_info['url'])
                     scrape_data(Title_Tags.sub('', talk_content), ConferenceTalkTitle, talk_info)
                     scrape_data(talk_content, ConferenceTalkSpeaker, talk_info)
-                    try: scrape_data(talk_content, ConferenceTalkThumbnail, talk_info)
+                    try:
+                        scrape_data(talk_content, ConferenceTalkThumbnail, talk_info)
+                        talk_info['thumbnail_url'] = talk_info['thumbnail_url'].replace('http:', 'https:')
                     except: pass
                     cleanup_dict(talk_info)
                     
@@ -234,7 +236,9 @@ def update_talk(talk_info):
     """
     contents = read_url(talk_info['conference'] + ':' + talk_info['session'] + ':' + talk_info['title'], talk_info['url'])
 
-    try: scrape_data(contents, TalkAudioPattern, talk_info)
+    try:
+        scrape_data(contents, TalkAudioPattern, talk_info)
+        talk_info['mp3_url'] = talk_info['mp3_url'].replace('http:', 'https:')
     except: scrape_data(contents, TalkAudioAlternate, talk_info)
 
     try: scrape_data(contents, TalkRolePattern, talk_info)
