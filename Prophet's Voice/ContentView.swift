@@ -62,16 +62,8 @@ struct ContentView: View {
                         }
                     }
                     Spacer()
-                    Text("What should I say?")
-                        .foregroundColor(.white)
-                        .font(.headline)
-                        .fontWeight(.heavy)
-                    Text("Spencer W. Kimball")
-                        .foregroundColor(.white)
-                    Text("April 2019")
-                        .foregroundColor(.white)
-                    Text("Saturday Morning Session")
-                        .foregroundColor(.white)
+                    CurrentTalkView()
+                    Spacer().frame(height:20)
                     HStack {
                         Spacer()
                         Button(action: {}) {

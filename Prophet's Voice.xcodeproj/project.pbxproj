@@ -12,6 +12,7 @@
 		B91B8BFA239B045100B1358E /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF9239B045100B1358E /* TopicView.swift */; };
 		B9372E21239DBBC50030F9AF /* general_conference_talks.json in Resources */ = {isa = PBXBuildFile; fileRef = B9372E20239DBBC50030F9AF /* general_conference_talks.json */; };
 		B9372E22239DBBC50030F9AF /* general_conference_talks.json in Resources */ = {isa = PBXBuildFile; fileRef = B9372E20239DBBC50030F9AF /* general_conference_talks.json */; };
+		B95AD7C123A1CAFB00E366A8 /* CurrentTalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95AD7C023A1CAFB00E366A8 /* CurrentTalk.swift */; };
 		B9908AA2239AFB150020D350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA1239AFB150020D350 /* AppDelegate.swift */; };
 		B9908AA4239AFB150020D350 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA3239AFB150020D350 /* SceneDelegate.swift */; };
 		B9908AA6239AFB150020D350 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AA5239AFB150020D350 /* ContentView.swift */; };
@@ -46,6 +47,7 @@
 		B91B8BF7239B042B00B1358E /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
 		B91B8BF9239B045100B1358E /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
 		B9372E20239DBBC50030F9AF /* general_conference_talks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = general_conference_talks.json; sourceTree = "<group>"; };
+		B95AD7C023A1CAFB00E366A8 /* CurrentTalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTalk.swift; sourceTree = "<group>"; };
 		B9908A9E239AFB150020D350 /* Prophet's Voice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prophet's Voice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9908AA1239AFB150020D350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9908AA3239AFB150020D350 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				B91B8BF5239B01AF00B1358E /* SettingsView.swift */,
 				B91B8BF7239B042B00B1358E /* SpeakerView.swift */,
 				B91B8BF9239B045100B1358E /* TopicView.swift */,
+				B95AD7C023A1CAFB00E366A8 /* CurrentTalk.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				B9908AA2239AFB150020D350 /* AppDelegate.swift in Sources */,
 				B91B8BF6239B01AF00B1358E /* SettingsView.swift in Sources */,
 				B91B8BFA239B045100B1358E /* TopicView.swift in Sources */,
+				B95AD7C123A1CAFB00E366A8 /* CurrentTalk.swift in Sources */,
 				B9B50D96239EE44E00CD886C /* Talks.swift in Sources */,
 				B9908AA4239AFB150020D350 /* SceneDelegate.swift in Sources */,
 				B9908AA6239AFB150020D350 /* ContentView.swift in Sources */,
