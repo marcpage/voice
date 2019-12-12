@@ -238,8 +238,8 @@ def update_talk(talk_info):
 
     try:
         scrape_data(contents, TalkAudioPattern, talk_info)
-        talk_info['mp3_url'] = talk_info['mp3_url'].replace('http:', 'https:')
     except: scrape_data(contents, TalkAudioAlternate, talk_info)
+    talk_info['mp3_url'] = talk_info['mp3_url'].replace('http:', 'https:')
 
     try: scrape_data(contents, TalkRolePattern, talk_info)
     except: pass
