@@ -10,6 +10,8 @@
 		B91B8BF6239B01AF00B1358E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF5239B01AF00B1358E /* SettingsView.swift */; };
 		B91B8BF8239B042B00B1358E /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF7239B042B00B1358E /* SpeakerView.swift */; };
 		B91B8BFA239B045100B1358E /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B8BF9239B045100B1358E /* TopicView.swift */; };
+		B93086B823A3E7060009EE6D /* ImageUrlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93086B723A3E7060009EE6D /* ImageUrlView.swift */; };
+		B93086BB23A3E8890009EE6D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93086BA23A3E8890009EE6D /* ImageLoader.swift */; };
 		B9372E21239DBBC50030F9AF /* general_conference_talks.json in Resources */ = {isa = PBXBuildFile; fileRef = B9372E20239DBBC50030F9AF /* general_conference_talks.json */; };
 		B9372E22239DBBC50030F9AF /* general_conference_talks.json in Resources */ = {isa = PBXBuildFile; fileRef = B9372E20239DBBC50030F9AF /* general_conference_talks.json */; };
 		B95AD7C123A1CAFB00E366A8 /* CurrentTalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95AD7C023A1CAFB00E366A8 /* CurrentTalk.swift */; };
@@ -46,6 +48,8 @@
 		B91B8BF5239B01AF00B1358E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B91B8BF7239B042B00B1358E /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
 		B91B8BF9239B045100B1358E /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
+		B93086B723A3E7060009EE6D /* ImageUrlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUrlView.swift; sourceTree = "<group>"; };
+		B93086BA23A3E8890009EE6D /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		B9372E20239DBBC50030F9AF /* general_conference_talks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = general_conference_talks.json; sourceTree = "<group>"; };
 		B95AD7C023A1CAFB00E366A8 /* CurrentTalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTalk.swift; sourceTree = "<group>"; };
 		B9908A9E239AFB150020D350 /* Prophet's Voice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prophet's Voice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,9 +101,18 @@
 				B91B8BF5239B01AF00B1358E /* SettingsView.swift */,
 				B91B8BF7239B042B00B1358E /* SpeakerView.swift */,
 				B91B8BF9239B045100B1358E /* TopicView.swift */,
+				B93086B723A3E7060009EE6D /* ImageUrlView.swift */,
 				B95AD7C023A1CAFB00E366A8 /* CurrentTalk.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B93086B923A3E8640009EE6D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B93086BA23A3E8890009EE6D /* ImageLoader.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		B9372E1F239DBB920030F9AF /* Data */ = {
@@ -135,6 +148,7 @@
 		B9908AA0239AFB150020D350 /* Prophet's Voice */ = {
 			isa = PBXGroup;
 			children = (
+				B93086B923A3E8640009EE6D /* Utilities */,
 				B9B50D94239EE42000CD886C /* Model */,
 				B91B8BF2239B015200B1358E /* Views */,
 				B9908AA1239AFB150020D350 /* AppDelegate.swift */,
@@ -351,12 +365,14 @@
 			files = (
 				B9908AA2239AFB150020D350 /* AppDelegate.swift in Sources */,
 				B91B8BF6239B01AF00B1358E /* SettingsView.swift in Sources */,
+				B93086BB23A3E8890009EE6D /* ImageLoader.swift in Sources */,
 				B91B8BFA239B045100B1358E /* TopicView.swift in Sources */,
 				B95AD7C123A1CAFB00E366A8 /* CurrentTalk.swift in Sources */,
 				B9B50D96239EE44E00CD886C /* Talks.swift in Sources */,
 				B9908AA4239AFB150020D350 /* SceneDelegate.swift in Sources */,
 				B9908AA6239AFB150020D350 /* ContentView.swift in Sources */,
 				B91B8BF8239B042B00B1358E /* SpeakerView.swift in Sources */,
+				B93086B823A3E7060009EE6D /* ImageUrlView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
