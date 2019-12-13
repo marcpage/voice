@@ -62,7 +62,7 @@ struct ContentView: View {
                         }
                     }
                     Spacer()
-                    CurrentTalkView()
+                    CurrentTalkView(talk: ConferenceTalk.tryLoad(defaultValue: [ConferenceTalk(identifier: "identifier", conference: "conference", session: "session", title: "title", speaker: "speaker", thumbnail_url: "thumbnail_url", mp3_url: "mp3_url", url: "url")])[0])
                     Spacer().frame(height:20)
                     HStack {
                         Spacer()

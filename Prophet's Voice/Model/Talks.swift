@@ -34,6 +34,16 @@ extension ConferenceTalk {
         }
         return try load(from: talkUrl)
     }
+    static func tryLoad(defaultValue: [ConferenceTalk]) -> [ConferenceTalk] {
+        do {
+            let talks = try ConferenceTalk.load(named: "general_conference_talks", withExtension: "json")
+            
+            return talks
+        } catch {
+            // ignore
+        }
+        return defaultValue
+    }
 }
 
 extension Array where Element == ConferenceTalk {

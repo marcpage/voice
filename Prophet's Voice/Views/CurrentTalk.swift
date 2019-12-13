@@ -9,27 +9,29 @@
 import SwiftUI
 
 struct CurrentTalkView: View {
+    @State var talk: ConferenceTalk
     
     var body: some View {
         VStack {
-            Text("What should I say?")
+            Text(talk.title)
                 .foregroundColor(.white)
                 .font(.headline)
                 .fontWeight(.heavy)
-            Text("Spencer W. Kimball")
+            Text(talk.speaker)
                 .foregroundColor(.white)
-            Text("April 2019")
+            Text(talk.conference)
                 .foregroundColor(.white)
-            Text("Saturday Morning Session")
+            Text(talk.session)
                 .foregroundColor(.white)
         }
     }
 }
 
 struct CurrentTalkView_Previews: PreviewProvider {
+    @State static var talks = ConferenceTalk.tryLoad(defaultValue: [ConferenceTalk(identifier: "identifier", conference: "conference", session: "session", title: "title", speaker: "speaker", thumbnail_url: "thumbnail_url", mp3_url: "mp3_url", url: "url")])
     static var previews: some View {
         ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) {
-            deviceName in CurrentTalkView()
+            deviceName in CurrentTalkView(talk: talks[0])
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }
