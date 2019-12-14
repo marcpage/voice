@@ -93,6 +93,11 @@ struct ContentView: View {
                                 .padding()
                         }
                         Spacer()
+                        Image(systemName: "calendar")
+                            .scaleEffect(2.0)
+                            .padding()
+                            .foregroundColor(.white)
+                        Spacer()
                         Button(action: {withAnimation {self.showTopics = true}}) {
                             Image(systemName: "text.bubble.fill")
                                 .scaleEffect(2.0)

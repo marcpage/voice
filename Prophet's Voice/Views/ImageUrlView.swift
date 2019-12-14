@@ -13,6 +13,8 @@ struct ImageUrlView: View {
 
     var body: some View {
         imageLoader.image
+            .resizable()
+            .aspectRatio(contentMode: .fit)
     }
 }
 

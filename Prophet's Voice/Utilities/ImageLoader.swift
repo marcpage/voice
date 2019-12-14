@@ -29,16 +29,24 @@ class ImageLoader : ObservableObject {
         let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
             var imageToDisplay = self.errorPlaceholder
             
-            if let imageFile = tempLocalUrl, let _ = error {
+            if let imageFile = tempLocalUrl {
                 do {
                     if let uiImage = UIImage(data: try Data(contentsOf: imageFile)) {
                         imageToDisplay = Image(uiImage:  uiImage)
+                    } else {
+                        print("Unable to create UIImage from \(imageFile) loaded from \(self.url)")
                     }
                 } catch {
-                    // we've already set the image to error placeholder
+                    print("Unable to load data from \(imageFile) loaded from \(self.url)")
                 }
+            } else if let err = error {
+                print("error loading \(self.url): \(err)")
+            } else {
+                print("No local data for \(self.url)")
             }
-            self.image = imageToDisplay
+            DispatchQueue.main.async {
+                self.image = imageToDisplay
+            }
         }
         task.resume()
     }
