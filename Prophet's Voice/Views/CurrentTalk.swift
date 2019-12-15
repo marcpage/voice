@@ -13,10 +13,12 @@ struct CurrentTalkView: View {
     
     var body: some View {
         VStack {
+            Spacer()
             ImageUrlView(imageLoader: ImageLoader(from: talk.thumbnail_url ?? "", placeholder: Image(systemName: "photo")))
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.white, lineWidth: 4))
                 .shadow(radius: 10)
+            Spacer()
             Text(talk.title)
                 .foregroundColor(.white)
                 .font(.headline)

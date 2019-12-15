@@ -50,6 +50,7 @@ struct ContentView: View {
                                 .padding()
                         }
                         Spacer()
+                        /* until we're ready to use them
                         Button(action: {self.love.toggle()}) {
                             Image(systemName: love ? "heart.fill" : "heart")
                                 .scaleEffect(2.0)
@@ -60,6 +61,7 @@ struct ContentView: View {
                                 .scaleEffect(2.0)
                                 .padding()
                         }
+                         */
                     }
                     Spacer()
                     CurrentTalkView(talk: ConferenceTalk.tryLoad(defaultValue: [ConferenceTalk(identifier: "identifier", conference: "conference", session: "session", title: "title", speaker: "speaker", thumbnail_url: "thumbnail_url", mp3_url: "mp3_url", url: "url")])[0])
@@ -86,6 +88,7 @@ struct ContentView: View {
                         Spacer()
                     }
                     Spacer().frame(height:30)
+                    /* until we're ready to use them
                     HStack {
                         Button(action: {withAnimation {self.showSpeakers = true}}) {
                             Image(systemName: "rectangle.stack.person.crop.fill")
@@ -97,15 +100,14 @@ struct ContentView: View {
                             .scaleEffect(2.0)
                             .padding()
                             .foregroundColor(.white)
-                        /* until topics can be figured out
                         Spacer()
                         Button(action: {withAnimation {self.showTopics = true}}) {
                             Image(systemName: "text.bubble.fill")
                                 .scaleEffect(2.0)
                                 .padding()
                         }
-                        */
                     }
+                    */
                 }
             }
             .accentColor(.white)

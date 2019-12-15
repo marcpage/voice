@@ -23,6 +23,8 @@
 		B9908AAE239AFB190020D350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9908AAC239AFB190020D350 /* LaunchScreen.storyboard */; };
 		B9908AB9239AFB190020D350 /* Prophet_s_VoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AB8239AFB190020D350 /* Prophet_s_VoiceTests.swift */; };
 		B9908AC4239AFB190020D350 /* Prophet_s_VoiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9908AC3239AFB190020D350 /* Prophet_s_VoiceUITests.swift */; };
+		B998114823A6699B00B68583 /* TalkPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B998114723A6699B00B68583 /* TalkPlayer.swift */; };
+		B998114A23A66C1D00B68583 /* TalkFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B998114923A66C1D00B68583 /* TalkFilter.swift */; };
 		B9B50D96239EE44E00CD886C /* Talks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B50D95239EE44D00CD886C /* Talks.swift */; };
 		B9B50D97239EE44E00CD886C /* Talks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B50D95239EE44D00CD886C /* Talks.swift */; };
 /* End PBXBuildFile section */
@@ -66,6 +68,8 @@
 		B9908ABF239AFB190020D350 /* Prophet's VoiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Prophet's VoiceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9908AC3239AFB190020D350 /* Prophet_s_VoiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prophet_s_VoiceUITests.swift; sourceTree = "<group>"; };
 		B9908AC5239AFB190020D350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B998114723A6699B00B68583 /* TalkPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkPlayer.swift; sourceTree = "<group>"; };
+		B998114923A66C1D00B68583 /* TalkFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkFilter.swift; sourceTree = "<group>"; };
 		B9A358DF239D3895008380EC /* scrape_general_conference_talks.py */ = {isa = PBXFileReference; explicitFileType = text.script.python; fileEncoding = 4; path = scrape_general_conference_talks.py; sourceTree = "<group>"; };
 		B9B50D95239EE44D00CD886C /* Talks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Talks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				B9B50D95239EE44D00CD886C /* Talks.swift */,
+				B998114923A66C1D00B68583 /* TalkFilter.swift */,
+				B998114723A6699B00B68583 /* TalkPlayer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -365,8 +371,10 @@
 			files = (
 				B9908AA2239AFB150020D350 /* AppDelegate.swift in Sources */,
 				B91B8BF6239B01AF00B1358E /* SettingsView.swift in Sources */,
+				B998114823A6699B00B68583 /* TalkPlayer.swift in Sources */,
 				B93086BB23A3E8890009EE6D /* ImageLoader.swift in Sources */,
 				B91B8BFA239B045100B1358E /* TopicView.swift in Sources */,
+				B998114A23A66C1D00B68583 /* TalkFilter.swift in Sources */,
 				B95AD7C123A1CAFB00E366A8 /* CurrentTalk.swift in Sources */,
 				B9B50D96239EE44E00CD886C /* Talks.swift in Sources */,
 				B9908AA4239AFB150020D350 /* SceneDelegate.swift in Sources */,
