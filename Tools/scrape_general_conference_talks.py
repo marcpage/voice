@@ -23,6 +23,26 @@ except: import queue
 
 # // MARK: - Constants
 
+Session_Cleanups = {
+    'Sunday morning session': 'Sunday Morning Session',
+    'Saturday Morning': 'Saturday Morning Session',
+    'General Priesthood Meeting': 'General Priesthood Session',
+    'Priesthood Session': 'General Priesthood Session',
+    'Priesthood session': 'General Priesthood Session',
+    'Sunday afternoon session': 'Sunday Afternoon Session',
+    'Women’s Session': "General Women's Session",
+    'General Women&#x27;s Session': "General Women's Session",
+    'General Women’s Meeting': "General Women's Session",
+    'General Women’s Session': "General Women's Session",
+    'General Women&#x27;s Meeting': "General Women's Session",
+    'Saturday afternoon session': 'Saturday Afternoon Session',
+    'Friday morning session': 'Friday Morning Session',
+    'Saturday morning session': 'Saturday Morning Session',
+    'Welfare session': 'General Welfare Session',
+    'Welfare Session': 'General Welfare Session',
+    'Welfare Services Session': 'General Welfare Session',
+}
+
 Log_Path = '/tmp/scrape_general_conference_talks.txt'
 
 Church_Server = 'https://www.ChurchOfJesusChrist.org'
@@ -101,6 +121,8 @@ def clean_url(url): return Church_Server + url.replace('&#x3D;', '=')
 
 def clean_html(html): return Html_Tags.sub('', html)
 
+def cleanup_session(s): return Session_Cleanups.get(s, s)
+    
 def cleanup_dict(d):
     for key in d:
         try: d[key] = d[key].strip()
@@ -192,7 +214,7 @@ def scrape_conference(name, url):
                     month = '04' if 'april' in name.lower() else ('10' if 'october' in name.lower() else 'XX')
                     
                     talk_info = {
-                        'session': session_name,
+                        'session': cleanup_session(session_name),
                         'conference' : name,
                         'identifier' : '%s%s%02d%02d'%(year, month, session_index, talk_index)
                     }
@@ -200,6 +222,7 @@ def scrape_conference(name, url):
                     talk_info['url'] = clean_url(talk_info['url'])
                     scrape_data(Title_Tags.sub('', talk_content), ConferenceTalkTitle, talk_info)
                     scrape_data(talk_content, ConferenceTalkSpeaker, talk_info)
+                    talk_info['speaker'] = talk_info['speaker'].replace('President ', '').replace('Elder ', '').replace('Bishop ', '')
                     try:
                         scrape_data(talk_content, ConferenceTalkThumbnail, talk_info)
                         talk_info['thumbnail_url'] = talk_info['thumbnail_url'].replace('http:', 'https:')
@@ -353,4 +376,34 @@ def main():
     with open(sys.argv[1], 'w') as f:
         json.dump([t for t in talks if 'mp3_url' in t], f, indent=2, sort_keys=True)
     
+    if len(sys.argv) > 2:
+        speakers = {speaker:0 for speaker in set([t['speaker'] for t in talks])}
+        for talk in talks:
+            speakers[talk['speaker']] += 1
+        
+        print('-' * 20 + ' speakers sorted by count ' + '-' * 20)
+        speaker_names = sorted(list(speakers.keys()), key=lambda x:speakers[x])
+        for speaker in speaker_names:
+            print("%d\t%s"%(speakers[speaker], speaker))
+        
+        print('-' * 20 + ' speakers sorted alphabetically ' + '-' * 20)
+        speaker_names = sorted(list(speakers.keys()), key=lambda x:x)
+        for speaker in speaker_names:
+            print("%d\t%s"%(speakers[speaker], speaker))
+
+        sessions = {session:0 for session in set([t['session'] for t in talks])}
+        for talk in talks:
+            sessions[talk['session']] += 1
+        
+        print('-' * 20 + ' sessions sorted by count ' + '-' * 20)
+        session_names = sorted(list(sessions.keys()), key=lambda x:sessions[x])
+        for session in session_names:
+            print("%d\t%s"%(sessions[session], session))
+        
+        print('-' * 20 + ' sessions sorted alphabetically ' + '-' * 20)
+        session_names = sorted(list(sessions.keys()), key=lambda x:x)
+        for session in session_names:
+            print("%d\t%s"%(sessions[session], session))
+
+
 if __name__ == '__main__': main()
