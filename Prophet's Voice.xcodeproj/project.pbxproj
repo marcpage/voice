@@ -360,7 +360,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n/usr/bin/python3 ${SCRIPT_INPUT_FILE_0} ${SCRIPT_OUTPUT_FILE_0}\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n/usr/local/bin/python3 ${SCRIPT_INPUT_FILE_0} ${SCRIPT_OUTPUT_FILE_0}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
