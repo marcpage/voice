@@ -73,6 +73,7 @@ ConferenceTalkSpeaker = re.compile(r'<div class="lumen-tile__content">(?P<speake
 TalkVideoPattern = re.compile(r'<source type=video/mp4 data-width=(?P<width>[0-9]+) data-height=(?P<height>[0-9]+) data-file-size=(?P<size>[0-9]+) src=(?P<url>[^>]+)>')
 TalkAudioPattern = re.compile(r'<a href="(?P<mp3_url>[^"]+\.mp3[^"]+)" title="[^"]+" class=[^>]+ download="">')
 TalkAudioAlternate = re.compile(r'<source src="(?P<mp3_url>[^"]+.mp3[^"]*)">')
+TalkAudioOther = re.compile(r'<a href="(?P<mp3_url>[^"]+\.mp3[^"]+)" class=\S+ download="">')
 TalkRolePattern = re.compile(r'<p class=author-role data-aid=\S+ id=author2>(?P<role>[^<]+)</p>')
 TalkContentsBegin = re.compile(r'<div class=body-block>')
 TalkContentsEnd = re.compile(r'</article>')
@@ -267,7 +268,11 @@ def update_talk(talk_info):
 
     try:
         scrape_data(contents, TalkAudioPattern, talk_info)
-    except: scrape_data(contents, TalkAudioAlternate, talk_info)
+    except:
+        try:
+            scrape_data(contents, TalkAudioAlternate, talk_info)
+        except:
+            scrape_data(contents, TalkAudioOther, talk_info)
     talk_info['mp3_url'] = talk_info['mp3_url'].replace('http:', 'https:')
 
     try: scrape_data(contents, TalkRolePattern, talk_info)
